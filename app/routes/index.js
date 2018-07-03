@@ -1,5 +1,4 @@
-let express = require('express')
-  , router = express.Router()
+const router = require('express').Router();
 
 let index_controller = require('../controllers/indexController')
 
