@@ -1,4 +1,4 @@
-module.exports = function() { 
+module.exports = () => { 
 
     // Initialize Requirements
     const express = require('express')
@@ -9,6 +9,7 @@ module.exports = function() {
     const cookieParser = require('cookie-parser');
     const session = require('express-session');
     const mongoose = require('mongoose');
+    const path = require('path');
 
     // Connect To Db
     console.log('Database Connection : mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT + '/' + process.env.DB_NAME);
@@ -17,14 +18,14 @@ module.exports = function() {
 
 
     // Set View Directory Path
-    app.set('views', '../../app/views');
+    app.set('views', path.resolve('./app/views'));
 
     // Set View File Extention
     app.set('view engine', 'pug');
     app.engine('pug', require('pug').__express)
 
     // Set Public Files Folder
-    app.use(express.static('../public'));
+    app.use(express.static(path.resolve('./public')));
 
     // Parse Post Parameters
     app.use(bodyParser.json());
@@ -39,7 +40,7 @@ module.exports = function() {
     }));
 
     // Routing
-    let routes = require('../app/routes');
+    let routes = require(path.resolve('./app/routes'));
     app.use('/', routes);
 
     // Listen Web Server
