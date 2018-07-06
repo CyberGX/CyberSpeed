@@ -1,14 +1,20 @@
 module.exports = function() { 
 
     // Initialize Requirements
-    let express = require('express');
-    let app = express();
-    let dotenv = require("dotenv").config();
-    let bodyParser = require('body-parser');
-    let fs = require('fs');
-    let cookieParser = require('cookie-parser');
-    let session = require('express-session');
-    let passport = require('passport');
+    const express = require('express')
+    const app = express();
+    const dotenv = require("dotenv").config();
+    const bodyParser = require('body-parser');
+    const fs = require('fs');
+    const cookieParser = require('cookie-parser');
+    const session = require('express-session');
+    const mongoose = require('mongoose');
+
+    // Connect To Db
+    console.log('Database Connection : mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT + '/' + process.env.DB_NAME);
+    mongoose.connect('mongodb://'+ process.env.DB_HOST + ':' + process.env.DB_PORT + '/' + process.env.DB_NAME, { useNewUrlParser: true });
+    mongoose.Promise = global.Promise;
+
 
     // Set View Directory Path
     app.set('views', '../../app/views');
@@ -32,18 +38,14 @@ module.exports = function() {
     	saveUninitialized : false
     }));
 
-    // Initial Authentication by Passport
-    app.use(passport.initialize());
-    app.use(passport.session());
-
     // Routing
-    let routes = require('../../app/routes');
+    let routes = require('../app/routes');
     app.use('/', routes);
 
     // Listen Web Server
-    let port = process.env.PORT || 3000;
+    let port = process.env.SERVER_PORT || 3000;
     let httpServer = app.listen(port, () => {
-    console.log('Listening on port ' + port);
+    console.log('WebServer Listening on port ' + port);
     });
 
     httpServer.on('error', (err) => {
