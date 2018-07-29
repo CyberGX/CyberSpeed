@@ -12,17 +12,17 @@ module.exports = () => {
     const path = require('path');
 
     // Connect To Db
-    console.log('Database Connection : mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT + '/' + process.env.DB_NAME);
-    mongoose.connect('mongodb://'+ process.env.DB_HOST + ':' + process.env.DB_PORT + '/' + process.env.DB_NAME, { useNewUrlParser: true });
-    mongoose.Promise = global.Promise;
+    // console.log('Database Connection : mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT + '/' + process.env.DB_NAME);
+    // mongoose.connect('mongodb://'+ process.env.DB_HOST + ':' + process.env.DB_PORT + '/' + process.env.DB_NAME, { useNewUrlParser: true });
+    // mongoose.Promise = global.Promise;
 
 
     // Set View Directory Path
     app.set('views', path.resolve('./app/views'));
 
     // Set View File Extention
-    app.set('view engine', 'pug');
-    app.engine('pug', require('pug').__express)
+    app.set('view engine', 'ejs');
+    app.engine('ejs', require('ejs').__express)
 
     // Set Public Files Folder
     app.use(express.static(path.resolve('./public')));
