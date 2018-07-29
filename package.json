@@ -4,7 +4,8 @@
   "description": "CyberSpeed is application development accelerator.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "config": "node ./core/cyberspeed.js --init-config"
   },
   "keywords": [
     "base",
@@ -17,6 +18,8 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
@@ -24,5 +27,8 @@
     "express-validator": "^5.2.0",
     "mongoose": "^5.2.1",
     "mongoose-timestamp": "^0.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
   }
 }
