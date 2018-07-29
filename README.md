@@ -10,8 +10,15 @@ It will provide you with a simple but solid structure on which to build on. We w
 $ git clone https://github.com/CyberGX/CyberSpeed
 
 $ cd CyberSpeed/
+```
 
+### Install Packages
+
+```bash
 $ npm install
+```
 
-$ npm config
+### Initial Configure
+```bash
+$ npm run init
 ```

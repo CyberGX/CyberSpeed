@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "config": "node ./core/cyberspeed.js --init-config"
+    "init": "node ./core/cyberspeed.js --init"
   },
   "keywords": [
     "base",
