@@ -23,7 +23,6 @@
     "express-session": "^1.15.6",
     "express-validator": "^5.2.0",
     "mongoose": "^5.2.1",
-    "mongoose-timestamp": "^0.6.0",
-    "pug": "^2.0.3"
+    "mongoose-timestamp": "^0.6.0"
   }
 }
