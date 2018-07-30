@@ -12,7 +12,7 @@ $ git clone https://github.com/CyberGX/CyberSpeed
 $ cd CyberSpeed/
 ```
 
-### Install Packages
+### eInstall Packages
 
 ```bash
 $ npm install
@@ -21,4 +21,9 @@ $ npm install
 ### Initial Configure
 ```bash
 $ npm run init
+```
+
+### Start Server
+```bash
+$ npm start
 ```
