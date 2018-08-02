@@ -40,8 +40,10 @@ module.exports = () => {
     }));
 
     // Routing
-    let routes = require(path.resolve('./app/routes'));
-    app.use('/', routes);
+    let app_routes = require(path.resolve('./app/routes'));
+    let core_routes = require(path.resolve('./core/routes'));
+    app.use('/', app_routes);
+    app.use('/', core_routes);
 
     // Listen Web Server
     let port = process.env.SERVER_PORT || 3000;
