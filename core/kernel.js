@@ -21,8 +21,9 @@ module.exports = () => {
     app.set('views', path.resolve('./app/views'));
 
     // Set View File Extention
-    app.set('view engine', 'ejs');
-    app.engine('ejs', require('ejs').__express)
+    app.set('view engine', 'html');
+    app.engine('html', require('hbs').__express)
+
 
     // Set Public Files Folder
     app.use(express.static(path.resolve('./public')));
